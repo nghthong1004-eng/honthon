@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Đơn Xin Gia Nhập Băng Đảng Sít Đát</title>
+    <style>
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+        body {
+            background-color: #121212;
+            color: #e0e0e0;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            padding: 20px;
+        }
+        .container {
+            max-width: 700px;
+            margin: 40px auto;
+            background: #1e1e1e;
+            border: 2px solid #d32f2f;
+            border-radius: 10px;
+            box-shadow: 0 0 20px rgba(211, 47, 47, 0.4);
+            overflow: hidden;
+        }
+        .header {
+            background: #d32f2f;
+            color: white;
+            text-align: center;
+            padding: 20px;
+        }
+        .header h1 {
+            font-size: 24px;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+        }
+        .image-container {
+            text-align: center;
+            padding: 20px;
+            background: #181818;
+            border-bottom: 1px solid #333;
+        }
+        .image-container img {
+            max-width: 100%;
+            height: auto;
+            max-height: 300px;
+            border-radius: 5px;
+            border: 1px solid #444;
+        }
+        .form-content {
+            padding: 30px;
+        }
+        .form-group {
+            margin-bottom: 20px;
+        }
+        label {
+            display: block;
+            margin-bottom: 8px;
+            color: #ff5252;
+            font-weight: bold;
+        }
+        input[type="text"], textarea {
+            width: 100%;
+            padding: 12px;
+            background: #2c2c2c;
+            border: 1px solid #444;
+            color: #fff;
+            border-radius: 5px;
+            font-size: 16px;
+        }
+        input[type="text"]:focus, textarea:focus {
+            outline: none;
+            border-color: #d32f2f;
+        }
+        textarea {
+            resize: vertical;
+            height: 120px;
+        }
+        .btn-submit {
+            background: #d32f2f;
+            color: white;
+            border: none;
+            padding: 12px 20px;
+            font-size: 16px;
+            font-weight: bold;
+            width: 100%;
+            border-radius: 5px;
+            cursor: pointer;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            transition: background 0.3s;
+        }
+        .btn-submit:hover {
+            background: #b71c1c;
+        }
+        .footer-note {
+            text-align: center;
+            margin-top: 20px;
+            font-size: 13px;
+            color: #777;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <div class="header">
+            <h1>Đơn Xin Gia Nhập Băng Đảng Sít Đát</h1>
+        </div>
+
+        <!-- Phần hình ảnh minh họa (Bạn có thể thay đổi link ảnh ở thuộc tính src) -->
+        <div class="image-container">
+            <img src="https://images.unsplash.com/photo-1542332213-9b5a5a3fad35?auto=format&fit=crop&w=600&q=80" alt="Băng đảng Sít Đát">
+        </div>
+
+        <div class="form-content">
+            <form action="#" method="POST">
+                
+                <div class="form-group">
+                    <label for="fullname">1. Họ và tên giang hồ (hoặc tên thật):</label>
+                    <input type="text" id="fullname" name="fullname" placeholder="Điền tên của bạn vào đây...">
+                </div>
+
+                <div class="form-group">
+                    <label for="nickname">2. Biệt danh trong giới (nếu có):</label>
+                    <input type="text" id="nickname" name="nickname" placeholder="Ví dụ: Sĩ đầu gấu, Đại bàng đen...">
+                </div>
+
+                <div class="form-group">
+                    <label for="skills">3. Kỹ năng / Sở trường đặc biệt:</label>
+                    <textarea id="skills" name="skills" placeholder="Điền các kỹ năng (ví dụ: Chạy nhanh, lật mặt giỏi, đấm bốc, hack game..."></textarea>
+                </div>
+
+                <div class="form-group">
+                    <label for="reason">4. Lý do muốn gia nhập băng đảng Sít Đát:</label>
+                    <textarea id="reason" name="reason" placeholder="Tại sao bạn lại chọn Sít Đát mà không phải băng khác?"></textarea>
+                </div>
+
+                <div class="form-group">
+                    <label for="pledge">5. Lời thề khi gia nhập:</label>
+                    <textarea id="pledge" name="pledge" placeholder="Điền lời thề trung thành của bạn..."></textarea>
+                </div>
+
+                <button type="submit" class="btn-submit">Gửi Đơn Xét Duyệt</button>
+            </form>
+            
+            <div class="footer-note">
+                * Lưu ý: Điền sai thông tin xác định ra đảo ở chung với khỉ!
+            </div>
+        </div>
+    </div>
+
+</body>
+</html>
