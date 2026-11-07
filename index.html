@@ -7,79 +7,223 @@
     <style>
         * { box-sizing: border-box; margin: 0; padding: 0; }
         body {
-            background-color: #121212;
-            color: #e0e0e0;
+            background-color: #0b0b0b;
+            color: #d1d1d1;
             font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            line-height: 1.6;
+            line-height: 1.7;
             padding: 20px;
         }
         .container {
-            max-width: 700px;
+            max-width: 750px;
             margin: 40px auto;
-            background: #1e1e1e;
-            border: 2px solid #d32f2f;
-            border-radius: 10px;
-            box-shadow: 0 0 20px rgba(211, 47, 47, 0.4);
+            background: #141414;
+            border: 2px solid #b71c1c;
+            border-radius: 12px;
+            box-shadow: 0 0 30px rgba(183, 28, 28, 0.3);
             overflow: hidden;
         }
         .header {
-            background: #d32f2f;
+            background: linear-gradient(135deg, #b71c1c, #7f0000);
             color: white;
             text-align: center;
-            padding: 20px;
+            padding: 25px;
+            border-bottom: 3px solid #ff5252;
         }
-        .header h1 { font-size: 22px; text-transform: uppercase; letter-spacing: 2px; }
+        .header h1 { 
+            font-size: 22px; 
+            text-transform: uppercase; 
+            letter-spacing: 2px;
+            font-weight: 800;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.5);
+        }
         .image-container {
             text-align: center;
             padding: 20px;
-            background: #181818;
-            border-bottom: 1px solid #333;
+            background: #101010;
+            border-bottom: 1px solid #222;
         }
         .image-container img {
             max-width: 100%;
             height: auto;
-            max-height: 250px;
-            border-radius: 5px;
-            border: 1px solid #444;
+            max-height: 240px;
+            border-radius: 6px;
+            border: 1px solid #333;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.7);
         }
-        .form-content { padding: 30px; }
-        .form-group { margin-bottom: 20px; }
-        label { display: block; margin-bottom: 8px; color: #ff5252; font-weight: bold; }
-        input[type="text"], textarea {
-            width: 100%;
-            padding: 12px;
-            background: #2c2c2c;
+        .form-content { padding: 40px; }
+        
+        .step { display: none; }
+        .step.active { display: block; }
+
+        /* Style cho Trang 1 */
+        .step-1-box {
+            text-align: center;
+            padding: 20px 0;
+        }
+        .step-1-box label {
+            font-size: 18px;
+            color: #ff5252;
+            margin-bottom: 15px;
+            display: block;
+        }
+        .step-1-box input[type="text"] {
+            width: 80%;
+            padding: 14px;
+            background: #1e1e1e;
             border: 1px solid #444;
             color: #fff;
-            border-radius: 5px;
-            font-size: 16px;
+            border-radius: 6px;
+            font-size: 18px;
+            text-align: center;
+            margin-bottom: 25px;
         }
-        input[type="text"]:focus, textarea:focus { outline: none; border-color: #d32f2f; }
-        textarea { resize: vertical; height: 100px; }
-        .btn-submit {
-            background: #d32f2f;
+
+        /* Style cho Nội dung Đơn (Trang 2) xịn sò */
+        .document-paper {
+            background: #191919;
+            border: 1px solid #333;
+            border-radius: 8px;
+            padding: 30px;
+            margin-bottom: 30px;
+            box-shadow: inset 0 0 15px rgba(0,0,0,0.8);
+        }
+        .doc-header-center {
+            text-align: center;
+            margin-bottom: 20px;
+        }
+        .doc-header-center .quoc-hieu {
+            font-weight: bold;
+            font-size: 15px;
+            color: #fff;
+            letter-spacing: 1px;
+        }
+        .doc-header-center .tieu-ngu {
+            font-size: 13px;
+            color: #aaa;
+            margin-bottom: 15px;
+            border-bottom: 1px dashed #444;
+            display: inline-block;
+            padding-bottom: 5px;
+        }
+        .doc-title {
+            text-align: center;
+            font-size: 20px;
+            font-weight: bold;
+            color: #ff5252;
+            margin: 20px 0;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+        .doc-section-title {
+            color: #ff5252;
+            font-weight: bold;
+            margin-top: 20px;
+            margin-bottom: 8px;
+            font-size: 16px;
+            border-left: 3px solid #b71c1c;
+            padding-left: 8px;
+        }
+        .doc-text {
+            font-size: 15px;
+            color: #ccc;
+            text-align: justify;
+            margin-bottom: 15px;
+        }
+        .doc-list {
+            margin-left: 20px;
+            margin-bottom: 15px;
+            color: #ccc;
+            font-size: 15px;
+        }
+        .doc-list li {
+            margin-bottom: 8px;
+        }
+        .signature-section {
+            margin-top: 30px;
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-end;
+        }
+        .signature-box {
+            text-align: center;
+            width: 250px;
+        }
+        .signature-box .date-sign {
+            font-style: italic;
+            font-size: 13px;
+            color: #aaa;
+            margin-bottom: 5px;
+        }
+        .signature-box .role-sign {
+            font-weight: bold;
+            color: #fff;
+            font-size: 15px;
+            margin-bottom: 40px;
+        }
+        .signature-box .name-sign {
+            font-weight: bold;
+            color: #ff5252;
+            font-size: 18px;
+            font-family: monospace;
+            letter-spacing: 2px;
+        }
+
+        /* Nút bấm tổng quát */
+        .btn-action {
+            background: linear-gradient(135deg, #d32f2f, #b71c1c);
             color: white;
             border: none;
-            padding: 12px 20px;
+            padding: 14px 20px;
             font-size: 16px;
             font-weight: bold;
             width: 100%;
-            border-radius: 5px;
+            border-radius: 6px;
             cursor: pointer;
             text-transform: uppercase;
             letter-spacing: 1px;
-            transition: background 0.3s;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 15px rgba(211, 47, 47, 0.4);
         }
-        .btn-submit:hover { background: #b71c1c; }
-        .step { display: none; }
-        .step.active { display: block; }
-        .choices { display: flex; gap: 15px; margin-top: 20px; }
-        .choices button { flex: 1; padding: 15px; font-size: 16px; font-weight: bold; border-radius: 5px; cursor: pointer; border: none; }
-        .btn-accept { background: #2e7d32; color: white; }
-        .btn-accept:hover { background: #1b5e20; }
-        .btn-no-choice { background: #d32f2f; color: white; position: relative; }
-        .success-box { text-align: center; padding: 20px; }
-        .success-box h2 { color: #4caf50; margin-bottom: 15px; }
+        .btn-action:hover {
+            background: linear-gradient(135deg, #e53935, #c62828);
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(211, 47, 47, 0.6);
+        }
+
+        /* Lựa chọn ở cuối trang 2 */
+        .choices-box {
+            background: #191919;
+            border: 1px solid #333;
+            padding: 20px;
+            border-radius: 8px;
+            text-align: center;
+        }
+        .choices-box p {
+            color: #ff5252;
+            font-weight: bold;
+            font-size: 16px;
+            margin-bottom: 15px;
+        }
+        .choices { display: flex; gap: 15px; }
+        .choices button { 
+            flex: 1; 
+            padding: 15px; 
+            font-size: 16px; 
+            font-weight: bold; 
+            border-radius: 6px; 
+            cursor: pointer; 
+            border: none; 
+            transition: 0.3s;
+        }
+        .btn-accept { background: #2e7d32; color: white; box-shadow: 0 4px 10px rgba(46, 125, 50, 0.3); }
+        .btn-accept:hover { background: #388e3c; transform: translateY(-2px); }
+        .btn-refuse { background: #b71c1c; color: white; box-shadow: 0 4px 10px rgba(183, 28, 28, 0.3); }
+        .btn-refuse:hover { background: #c62828; transform: translateY(-2px); }
+
+        /* Trang 3 thành công */
+        .success-box { text-align: center; padding: 40px 20px; }
+        .success-box h2 { color: #4caf50; margin-bottom: 15px; font-size: 24px; }
+        .success-box p { font-size: 18px; color: #ddd; margin-bottom: 10px; }
     </style>
 </head>
 <body>
@@ -89,121 +233,149 @@
         <h1 id="header-title">Hệ Thống Tuyển Quân Sít Đát</h1>
     </div>
 
-    <!-- TRANG 1: Nhập tên người duyệt -->
+    <!-- ================= TRANG 1: NHẬP TÊN NGƯỜI DUYỆT ================= -->
     <div id="step-1" class="step active">
         <div class="form-content">
-            <div class="form-group">
-                <label for="reviewer-name">Xin vui lòng cho biết danh tính người duyệt đơn:</label>
+            <div class="step-1-box">
+                <label for="reviewer-name">🔒 Xin vui lòng cho biết danh tính người duyệt đơn:</label>
                 <input type="text" id="reviewer-name" placeholder="Nhập tên của bạn vào đây...">
+                <button type="button" class="btn-action" onclick="goToStep2()">Mở Đơn Xem Xét</button>
             </div>
-            <button type="button" class="btn-submit" onclick="goToStep2()">Tiếp Tục Xem Đơn</button>
         </div>
     </div>
 
-    <!-- TRANG 2: Nội dung đơn xin gia nhập (Bạn có sẵn text) -->
+    <!-- ================= TRANG 2: NỘI DUNG ĐƠN XIN GIA NHẬP ================= -->
     <div id="step-2" class="step">
+        <!-- Hình ảnh minh họa -->
         <div class="image-container">
-            <img src="https://images.unsplash.com/photo-1542332213-9b5a5a3fad35?auto=format&fit=crop&w=600&q=80" alt="Băng đảng Sít Đát">
+            <img src="https://images.unsplash.com/photo-1542332213-9b5a5a3fad35?auto=format&fit=crop&w=700&q=80" alt="Băng đảng Sít Đát">
         </div>
+        
         <div class="form-content">
-            <form id="apply-form" action="https://formspree.io/f/xoeezezp" method="POST">
-                <!-- Lưu tên người duyệt ngầm để gửi về mail -->
+            <!-- Form ngầm gửi thông tin về Formspree (Nhớ thay link Formspree của bạn vào đây nếu cần) -->
+            <form id="apply-form" action="https://formspree.io/f/xoeeezzp" method="POST">
                 <input type="hidden" id="hidden-reviewer" name="Nguoi_Duyet">
 
-                <div class="form-group">
-                    <label>1. Họ và tên ứng viên:</label>
-                    <input type="text" name="Ho_Ten" value="Nguyễn Hoàng Thông" readonly>
+                <div class="document-paper">
+                    <div class="doc-header-center">
+                        <div class="quoc-hieu">CỘNG HÒA XÃ HỘI CHỦ NGHĨA VIỆT NAM</div>
+                        <div class="tieu-ngu">Độc lập - Tự do - Hạnh phúc</div>
+                    </div>
+
+                    <div class="doc-title">Đơn Xin Gia Nhập Băng Đảng Sít Đát</div>
+                    
+                    <p class="doc-text" style="text-align: center; font-weight: bold; color: #fff; margin-bottom: 15px;">
+                        Kính gửi: Ban lãnh đạo tối cao Băng Đảng SÍT ĐÁT.
+                    </p>
+
+                    <p class="doc-text"><strong>Em tên là:</strong> Thomas Ngủ-yên (honthon)</p>
+                    <p class="doc-text"><strong>Ngày, tháng, năm sinh:</strong> 10-04-2004</p>
+                    <p class="doc-text"><strong>Can chi ngày:</strong> Kỷ Mùi, tháng Đinh Mão, năm Giáp Thân</p>
+                    <p class="doc-text"><strong>Bản mệnh (ngũ hành):</strong> Mệnh Thủy – Tuyền Trung Thủy (nước trong suối).</p>
+                    <p class="doc-text"><strong>Nghề nghiệp hiện tại:</strong> Zang hồ mạng.</p>
+
+                    <p class="doc-text" style="margin-top: 15px;">
+                        Sau một thời gian dài tìm hiểu, quan sát và chứng kiến những hoạt động đầy uy tín, đoàn kết, nghĩa khí nhưng không kém phần bất ổn của <strong>Băng Đảng SÍT ĐÁT</strong>, em nhận thấy bản thân có đủ tố chất, tinh thần và sự bất cần thiết để trở thành một thành viên chính thức của tổ chức.
+                    </p>
+                    <p class="doc-text">
+                        Nay em viết đơn này kính mong Ban lãnh đạo xem xét và chấp thuận cho em được gia nhập Băng Đảng SÍT ĐÁT.
+                    </p>
+
+                    <div class="doc-section-title">Nguyện vọng của em:</div>
+                    <ul class="doc-list">
+                        <li>Mong muốn được giao lưu, kết nối và xây dựng tình đoàn kết với các thành viên trong băng đảng.</li>
+                        <li>Mong muốn tìm kiếm một môi trường hoạt động có tổ chức, có kỷ luật nhưng không quá nghiêm túc.</li>
+                        <li>Có tinh thần đồng đội, sẵn sàng đồng cam cộng khổ, cùng ăn, cùng chơi và cùng chịu trách nhiệm khi có biến.</li>
+                        <li>Mong muốn được công nhận danh phận, có chỗ đứng và có tiếng nói trong tổ chức.</li>
+                    </ul>
+
+                    <div class="doc-section-title">Em xin cam kết:</div>
+                    <ul class="doc-list">
+                        <li>Tuyệt đối trung thành với Băng Đảng SÍT ĐÁT, không phản bội anh em, không bán đứng đồng đội.</li>
+                        <li>Luôn giữ vững tinh thần đoàn kết, không gây chia rẽ nội bộ, không đâm sau lưng đồng chí.</li>
+                        <li>Có mặt đúng giờ trong các cuộc nhậu quan trọng, không viện lý do bận việc cá nhân để trốn tránh trách nhiệm.</li>
+                        <li>Sẵn sàng hỗ trợ anh em trong khả năng cho phép, đặc biệt trong những lúc cần người chia tiền, gọi món hoặc đặt bàn.</li>
+                        <li>Không tiết lộ bí mật nội bộ, không phát ngôn linh tinh gây ảnh hưởng đến danh tiếng của băng đảng.</li>
+                        <li>Chấp hành sự phân công của Ban lãnh đạo, không tự ý làm phản hoặc lập phe phái riêng.</li>
+                        <li>Luôn giữ gìn hình ảnh, danh dự và thương hiệu SÍT ĐÁT trong mọi hoàn cảnh.</li>
+                    </ul>
+
+                    <p class="doc-text" style="margin-top: 15px;">
+                        Kính mong Ban lãnh đạo xem xét, phê duyệt và cấp cho em một vị trí xứng đáng trong tổ chức. Em xin chân thành cảm ơn!
+                    </p>
+
+                    <div class="signature-section">
+                        <div></div>
+                        <div class="signature-box">
+                            <div class="date-sign">Thứ Sáu, ngày 06 tháng 11 năm 2026</div>
+                            <div class="role-sign">NGƯỜI LÀM ĐƠN<br><span style="font-size: 11px; font-weight: normal; color: #888;">(Ký và ghi rõ họ tên)</span></div>
+                            <div class="name-sign">honthon</div>
+                        </div>
+                    </div>
                 </div>
 
-                <div class="form-group">
-                    <label>2. Biệt danh trong giới:</label>
-                    <input type="text" name="Biet_Danh" value="honthon" readonly>
-                </div>
-
-                <div class="form-group">
-                    <label>3. Kỹ năng / Sở trường đặc biệt:</label>
-                    <textarea name="Ky_Nang" readonly>Trùm cào phím, tấu hài khét tiếng, chạy nhanh khi thấy công an.</textarea>
-                </div>
-
-                <div class="form-group">
-                    <label>4. Lý do muốn gia nhập:</label>
-                    <textarea name="Ly_Do" readonly>Vì ngưỡng mộ độ uy tín của băng đảng Sít Đát từ lâu.</textarea>
-                </div>
-
-                <div class="form-group">
-                    <label>5. Lời thề:</label>
-                    <textarea name="Loi_The" readonly>Trung thành tuyệt đối, không bao giờ phản bội đại ca.</textarea>
-                </div>
-
-                <p style="color: #ff5252; margin: 20px 0 10px 0; font-weight: bold; text-align: center;">Bạn có đồng ý phê duyệt đơn này không?</p>
-                
-                <div class="choices">
-                    <button type="button" class="btn-accept" onclick="submitAndFinish('Đồng ý chấp thuận')">1. Chấp nhận</button>
-                    <button type="button" class="btn-no-choice" onmouseover="moveButton(this)" onclick="submitAndFinish('Buộc phải chấp nhận')">2. Không thể nào từ chối</button>
+                <!-- Lựa chọn phê duyệt -->
+                <div class="choices-box">
+                    <p>⚡ Bạn có đồng ý phê duyệt đơn này không?</p>
+                    <div class="choices">
+                        <button type="button" class="btn-accept" onclick="submitAndFinish('1. Chấp nhận')">1. Chấp nhận</button>
+                        <button type="button" class="btn-refuse" onclick="submitAndFinish('2. Không thể nào từ chối')">2. Không thể nào từ chối</button>
+                    </div>
                 </div>
             </form>
         </div>
     </div>
 
-    <!-- TRANG 3: Thông báo thành công -->
+    <!-- ================= TRANG 3: THÀNH CÔNG ================= -->
     <div id="step-3" class="step">
         <div class="form-content success-box">
             <h2>🎉 Chúc mừng bạn đã tuyển được 1 thành viên chất lượng!</h2>
-            <p style="font-size: 18px; margin-bottom: 20px;">Xin đừng ăn hiếp thành viên này nữa nhé!</p>
-            <p style="color: #888; font-size: 14px;">(Thông tin phê duyệt đã được gửi thẳng về email của chủ nhân đơn).</p>
+            <p style="font-size: 18px;">Xin đừng ăn hiếp thành viên này nữa nhé!</p>
+            <p style="color: #777; font-size: 13px; margin-top: 20px;">(Dữ liệu phê duyệt của người duyệt đã được gửi về email của bạn qua Formspree).</p>
         </div>
     </div>
 
 </div>
 
 <script>
-    let reviewerName = "";
-
     function goToStep2() {
         const input = document.getElementById('reviewer-name').value.trim();
         if(input === "") {
-            alert("Vui lòng nhập tên của bạn trước khi xem đơn!");
+            alert("Vui lòng nhập tên của bạn để tiếp tục!");
             return;
         }
-        reviewerName = input;
-        document.getElementById('hidden-reviewer').value = reviewerName;
+        document.getElementById('hidden-reviewer').value = input;
         
         // Chuyển sang trang 2
         document.getElementById('step-1').classList.remove('active');
         document.getElementById('step-2').classList.add('active');
-        document.getElementById('header-title').innerText = "Đơn Xin Gia Nhập Của Nguyễn Hoàng Thông";
-    }
-
-    // Hiệu ứng nút "Không thể nào từ chối" tự chạy trốn cho vui (tùy chọn)
-    function moveButton(btn) {
-        // Bạn có thể thêm hiệu ứng né chuột ở đây nếu thích, hiện tại bấm vào vẫn tính là chọn dòng 2
+        document.getElementById('header-title').innerText = "Hồ Sơ Xin Gia Nhập Của Thomas Ngủ-yên";
     }
 
     function submitAndFinish(choiceType) {
-        // Tạo thêm một trường ẩn để gửi kết quả lựa chọn (Chấp nhận hay Không thể từ chối)
         const form = document.getElementById('apply-form');
+        
+        // Gắn lựa chọn vào form ngầm
         let inputChoice = document.createElement('input');
         inputChoice.type = 'hidden';
         inputChoice.name = 'Ket_Qua_Duyet';
         inputChoice.value = choiceType;
         form.appendChild(inputChoice);
 
-        // Gửi dữ liệu ngầm đi qua Formspree bằng AJAX để không bị chuyển trang đi nơi khác
+        // Gửi ngầm qua Formspree về email của bạn
         const formData = new FormData(form);
         fetch(form.action, {
             method: 'POST',
             body: formData,
             headers: { 'Accept': 'application/json' }
-        }).then(response => {
-            // Chuyển sang trang 3
-            document.getElementById('step-2').classList.remove('active');
-            document.getElementById('step-3').classList.add('active');
-            document.getElementById('header-title').innerText = "Hoàn Tất Tuyển Quân";
         }).catch(error => {
-            // Nếu có lỗi mạng thì vẫn cho qua trang 3 để người dùng không bị kẹt
-            document.getElementById('step-2').classList.remove('active');
-            document.getElementById('step-3').classList.add('active');
+            console.log('Error:', error);
         });
+
+        // Chuyển sang trang 3 hiển thị lời nhắn
+        document.getElementById('step-2').classList.remove('active');
+        document.getElementById('step-3').classList.add('active');
+        document.getElementById('header-title').innerText = "Hoàn Tất Phê Duyệt";
     }
 </script>
 
